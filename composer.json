@@ -1,0 +1,18 @@
+{
+    "name": "tamzidan/moviecli",
+    "type": "project",
+    "require": {
+        "symfony/console": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tamzidan\\Moviecli\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tamzidan",
+            "email": "tamzidan01@gmail.com"
+        }
+    ]
+}
