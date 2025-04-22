@@ -14,8 +14,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 // the name of the command is what users type after "php bin/console"
-#[AsCommand(name: 'app:helloworld')]
-class HelloworldCommand extends Command
+#[AsCommand(name: 'movie:list')]
+class MovieList extends Command
 {
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -26,18 +26,22 @@ class HelloworldCommand extends Command
             'timeout'  => 2.0,
         ]);
 
+        $apikey = trim(file_get_contents(__DIR__ . '/../apikey.txt'));
+
         $response = $client->request('GET', 'https://www.omdbapi.com',[
             'query' => [
-                'apikey' => '63a9c267',
+                'apikey' => $apikey,
                 'i' => 'tt1285016'
             ]
         ]);
         
-        var_dump($response);
+        $bodyString = (string)$response->getBody();
+        $bodyObject = json_decode($bodyString);
+        var_dump($bodyObject->Title);
         return Command::SUCCESS;
     }
 }
 
 $application = new Application();
-$application->add( new HelloworldCommand());
+$application->add( new MovieList());
 $application->run();
