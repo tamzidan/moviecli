@@ -1,6 +1,8 @@
 <?php
 
 // the name of the command is what users type after "php bin/console"
+namespace App\Command\Movie;
+include __DIR__ . '/../../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Attribute\AsCommand;

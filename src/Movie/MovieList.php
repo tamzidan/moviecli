@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Command\Movie;
+include __DIR__ . '/../../vendor/autoload.php';
+
+
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

@@ -3,10 +3,11 @@
 namespace App\Command;
 
 include __DIR__ . '/../vendor/autoload.php';
+include __DIR__ . '/Movie/MovieList.php';
+include __DIR__ . '/Movie/MovieDetail.php';
 
-
-use Movie\MovieDetail;
-use Movie\MovieList;
+use App\Command\Movie\MovieDetail;
+use App\Command\Movie\MovieList;
 use Symfony\Component\Console\Application;
 
 
